@@ -3,7 +3,7 @@ class Solution {
         
         int n = nums.length;
         Arrays.sort(nums);
-        System.out.println(Arrays.toString(nums));
+        // System.out.println(Arrays.toString(nums));
         List<List<Integer>> res = new ArrayList<>();
         // Collections.sort(new ArrayList());
         for(int i=0; i<n-2; i++){
@@ -12,7 +12,7 @@ class Solution {
                 int sum = 0-nums[i];
                 int lo = i+1;
                 int hi = n-1;
-                System.out.println(sum);
+                // System.out.println(sum);
                 while(lo < hi){
                     if(lo != i+1 && hi != n-1){
                         while(hi > 1 && nums[hi] == nums[hi+1]) hi--;
