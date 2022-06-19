@@ -24,10 +24,11 @@ class Solution {
                     // System.out.println(l+" "+h+" = "+(int)sum);
                     if((sum) == newTar){
                         list.add(Arrays.asList(nums[l], nums[h], nums[i], nums[j]));
-                        while(l<h && nums[l] == nums[l+1]) l++;
-                        while(l<h && nums[h] == nums[h-1]) h--;
-                        l++;
-                        h--;
+                        ++l;
+                        --h;
+                        while(l<h && nums[l] == nums[l-1]) l++;
+                        while(l<h && nums[h] == nums[h+1]) h--;
+                       
                     }
                     else if(sum < newTar )
                         l++;
