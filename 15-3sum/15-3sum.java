@@ -7,17 +7,15 @@ class Solution {
         List<List<Integer>> res = new ArrayList<>();
 
         for(int i=0; i<n-2; i++){
-            if(i==0 || (nums[i-1] != nums[i])){
-                
+            if(i>0 && (nums[i-1] == nums[i])){ // to avoid duplicates
+                continue;
+            }
                 int sum = 0-nums[i];
                 int lo = i+1;
                 int hi = n-1;
 
                 while(lo < hi){
-                    // if(lo != i+1 && hi != n-1){
-                
-                    // }
-                    // if(lo >= hi) continue;
+               
                     if(nums[lo]+nums[hi] == sum){
                         res.add(Arrays.asList(nums[hi], nums[lo], -sum));
                         while(lo < hi && nums[hi] == nums[hi-1]) hi--;
@@ -31,7 +29,6 @@ class Solution {
                     else
                         hi--;
                 }
-            }
         }
         
         return res;
