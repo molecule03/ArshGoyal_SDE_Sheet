@@ -23,16 +23,17 @@ class Solution {
             return true;
         }
         
-        if(i<0 || i>=board.length || j<0 || j>=board[0].length || word.charAt(idx) != board[i][j] || visited[i][j]){
-            // System.out.println("Boundary wale false");
+        if( i<0 || i>=board.length || j<0 || j>=board[0].length ||
+            word.charAt(idx) != board[i][j] || visited[i][j] )
+        {
             return false;
         }
         
         visited[i][j] = true;
-        if(search(i+1, j, idx+1, board, word) ||
-           search(i-1, j, idx+1, board, word) ||
-           search(i, j+1, idx+1, board, word) ||
-           search(i, j-1, idx+1, board, word) 
+        if( (search(i+1, j, idx+1, board, word) ||
+             search(i-1, j, idx+1, board, word) ||
+             search(i, j+1, idx+1, board, word) ||
+             search(i, j-1, idx+1, board, word) ) 
           )
             return true;
         
