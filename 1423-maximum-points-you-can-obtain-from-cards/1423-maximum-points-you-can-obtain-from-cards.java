@@ -19,7 +19,7 @@ class Solution {
             rSum -= cardPoints[j++];
             
             points = lSum+rSum;
-            System.out.println(points);
+            // System.out.println(points);
             maxPoints = Math.max(points, maxPoints);
         }
         
