@@ -6,7 +6,7 @@ class Solution {
         for(int i=0; i<s.length(); i++){
             char cs = s.charAt(i);
             for(int j=idx; j<t.length(); j++){
-                        System.out.println(t.charAt(i)+" "+cs);
+                        // System.out.println(t.charAt(i)+" "+cs);
                 if(t.charAt(j) == cs){
                     idx = j+1;
                     count++;
