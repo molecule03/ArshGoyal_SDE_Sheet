@@ -1,19 +1,25 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+        if(n == 0) return;
         
-        Queue<Integer> pq = new PriorityQueue<>();
         
-        for(int i=0; i<m; i++){
-            pq.add(nums1[i]);
+        int i = m-1;
+        int j = n-1;
+        int k = nums1.length-1;
+        
+        while(i >= 0 && j>=0){
+                    // System.out.println("In Upper Loop");
+            if(nums1[i] > nums2[j]){
+                nums1[k--] = nums1[i--];
+            }else{
+                nums1[k--] = nums2[j--];
+            }
         }
         
-        for(int j=0; j<n; j++){
-            pq.add(nums2[j]);
+        while(j >= 0){
+            // System.out.println("In Lower Loop");
+            nums1[k--] = nums2[j--];
         }
         
-        // System.out.println(pq);
-        for(int i=0; i<nums1.length; i++){
-            nums1[i] = pq.poll();
-        }
     }
 }
