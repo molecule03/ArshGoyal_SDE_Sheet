@@ -9,11 +9,11 @@ class Solution {
             if(count == 0){
                 element = i;
             }
-            if(element == i){
+            
+            if(element == i)
                 count++;
-            }else{
-                count--;
-            }
+            else 
+                count --;
         }
         
         return element;
