@@ -5,7 +5,7 @@ class Solution {
         
         int mod = 1000000007;
         
-        long[] val = new long[n+5];
+        long[] val = new long[n];
         
         val[1] = 2;
         val[2] = 3;
