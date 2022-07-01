@@ -1,23 +1,20 @@
 class Solution {
     public int countHousePlacements(int n) {
-        if(n == 1) return 4;
-        if(n == 2) return 9;
+
         
         int mod = 1000000007;
         
-        long[] val = new long[n];
+        long[] val = new long[n+5];
         
         val[1] = 2;
         val[2] = 3;
-        for(int i=3; i<n; i++){
+        for(int i=3; i<=n; i++){
             val[i] = (val[i-1]+val[i-2])%mod;
         }
         
-        long ans = (val[n-1]+val[n-2])%mod;
+        long ans = (val[n]*val[n])%mod;
         
-        long lav = (ans*ans)%mod;
-        
-        return (int)lav;
+        return (int)ans;
     }
 }
 
