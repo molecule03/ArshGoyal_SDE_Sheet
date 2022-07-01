@@ -2,9 +2,9 @@ class Solution {
 public:
     int countHousePlacements(int n) {
         
-               int mod = 1000000007;
+        int mod = 1000000007;
         
-        long val[n+5];// = new long[n+5];
+        long val[n+2];
         
         val[1] = 2;
         val[2] = 3;
