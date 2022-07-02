@@ -5,7 +5,7 @@ class Solution {
         Arrays.sort(horizontalCuts);
         Arrays.sort(verticalCuts);
         
-        long maxl = horizontalCuts[0]-0;
+        long maxLength = horizontalCuts[0]-0;
         int nexth = 0;
         long hsize = horizontalCuts.length;
         for(int i=0; i<hsize; i++){
@@ -16,26 +16,25 @@ class Solution {
             
             long curh = horizontalCuts[i];
             
-            maxl = Math.max(maxl, (nexth-curh));
+            maxLength = Math.max(maxLength, (nexth-curh));
         }
         
-        long maxb = verticalCuts[0]-0;
+        long maxBreadth = verticalCuts[0]-0;
         int nextv = 0;
-        long vsize = verticalCuts.length;
-        for(int i=0; i<vsize; i++){
-            if(i == vsize-1)
+        long wsize = verticalCuts.length;
+        for(int i=0; i<wsize; i++){
+            if(i == wsize-1)
                 nextv = w;
             else       
                 nextv = verticalCuts[i+1];
             
             long curv = verticalCuts[i];
             
-            maxb = Math.max(maxb, (nextv-curv));
+            maxBreadth = Math.max(maxBreadth, (nextv-curv));
         }
         
         
-        long maxArea = (maxb*maxl)%mod; 
-        // System.out.println(maxl);
+        long maxArea = (maxBreadth*maxLength)%mod; 
         
         
         return (int)maxArea;
