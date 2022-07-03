@@ -1,18 +1,18 @@
 class Solution {
-    public int wiggleMaxLength(int[] nums) {
+public:
+    int wiggleMaxLength(vector<int>& nums) {
         
-        int diff[] = new int[nums.length-1];
+        vector<int> diff(nums.size()-1);
         
         int j=0;
-        for(int i=1; i<nums.length; i++){
+        for(int i=1; i<nums.size(); i++){
             if(nums[i]- nums[i-1] == 0) continue;
             diff[j++] = nums[i]-nums[i-1];
         }
-
-        int count = 1;
-        boolean flag = false;
-        int k=0;
         
+        int count = 1;
+        bool flag = false;
+        int k=0;
         for(int i : diff){
             if(k == 0){                 // just for 1st element
                 if(diff[0]<0){
@@ -46,4 +46,4 @@ class Solution {
         
         return count;
     }
-}
+};
