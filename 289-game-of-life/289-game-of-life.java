@@ -9,10 +9,10 @@ class Solution {
                 
                 int curLiv = 0;
                 for(int i=0; i<8; i++){
-                    int x = r+dx[i];
-                    int y = c+dy[i];
+                    int curX = r+dx[i];
+                    int curY = c+dy[i];
                     
-                    if(isValid(x, y, board) && Math.abs(board[x][y]) == 1)
+                    if(isValid(curX, curY, board) && Math.abs(board[curX][curY]) == 1)
                         curLiv++;
                 }
                 
