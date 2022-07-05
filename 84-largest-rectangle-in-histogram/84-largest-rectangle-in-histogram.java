@@ -35,8 +35,8 @@ class Solution {
             st.push(i);
         }
         
-        System.out.println(Arrays.toString(leftS));
-        System.out.println(Arrays.toString(rightS));
+        // System.out.println(Arrays.toString(leftS));
+        // System.out.println(Arrays.toString(rightS));
         
         int maxArea = Integer.MIN_VALUE;
         for(int i=0; i<n; i++){
