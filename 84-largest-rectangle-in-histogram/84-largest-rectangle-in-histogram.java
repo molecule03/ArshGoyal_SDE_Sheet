@@ -4,6 +4,8 @@ class Solution {
         int n = heights.length;
         Stack<Integer> st = new Stack<>();
         
+        
+// Smallest element from the left
         int leftS[] = new int[n];
         for(int i=0; i<n; i++){
             
@@ -18,9 +20,10 @@ class Solution {
             st.push(i);
         }
         
-        
+// Emptying the stack to resuse it again
         while(!st.isEmpty()) st.pop();
         
+// Smallest element from the right
         int rightS[] = new int[n];
         for(int i=n-1; i>=0; i--){
             
@@ -35,9 +38,7 @@ class Solution {
             st.push(i);
         }
         
-        // System.out.println(Arrays.toString(leftS));
-        // System.out.println(Arrays.toString(rightS));
-        
+// Considering the height and the boundary and calculating the area
         int maxArea = Integer.MIN_VALUE;
         for(int i=0; i<n; i++){
             
