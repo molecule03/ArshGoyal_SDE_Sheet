@@ -1,7 +1,7 @@
 class Solution {
-    int[] dp = new int[31];
-    
-    public int fib(int n) {
+
+int dp[31];
+public: int fib(int n) {
         if(n <= 1) return n;
     
         if(dp[n] != 0){
@@ -12,4 +12,4 @@ class Solution {
         
         return sum;
     }
-}
+};
