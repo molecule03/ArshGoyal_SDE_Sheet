@@ -21,14 +21,14 @@ class Solution {
     
     private boolean isValid(char[]c1, char[]c2, char[]c3, int len1, int len2, int len3, int p1, int p2, int p3){
         
-        System.out.println("In isValis"+" "+i++);
+        // System.out.println("In isValis"+" "+i++);
         if(p3 == len3){
             return (p2==len2 && p1==len1);
         }
         
-        StringBuilder sb = new StringBuilder(""+p1+'*'+""+p2+'*'+""+p3);
-        String key = sb.toString();
-        System.out.println(key);
+        String key = new StringBuilder(""+p1+'*'+""+p2+'*'+""+p3).toString();
+        // String key = sb.toString();
+        // System.out.println(key);
         
         if(map.containsKey(key)){
             return map.get(key);
