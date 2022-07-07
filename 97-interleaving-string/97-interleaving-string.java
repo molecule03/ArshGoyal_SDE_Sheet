@@ -1,6 +1,5 @@
 class Solution {
     Map<String, Boolean> map = new HashMap<>();
-    int i = 0;
     
     public boolean isInterleave(String s1, String s2, String s3) {
         
