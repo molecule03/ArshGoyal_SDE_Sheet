@@ -19,16 +19,13 @@ class Solution {
         return isValid(c1, c2, c3, len1, len2, len3, 0, 0, 0);
     }
     
-    private boolean isValid(char[]c1, char[]c2, char[]c3, int len1, int len2, int len3, int p1, int p2, int p3){
+    private boolean isValid(char[]c1, char[]c2, char[]c3, int len1, int len2, int len3, int p1, int p2,int p3){
         
-        // System.out.println("In isValis"+" "+i++);
         if(p3 == len3){
             return (p2==len2 && p1==len1);
         }
         
-        String key = new StringBuilder(""+p1+'*'+""+p2+'*'+""+p3).toString();
-        // String key = sb.toString();
-        // System.out.println(key);
+        String key = new StringBuilder(""+p1+"*"+""+p2+"*"+""+p3).toString();
         
         if(map.containsKey(key)){
             return map.get(key);
@@ -40,8 +37,8 @@ class Solution {
             return map.get(key);
         }
         if(p2 == len2){
-            boolean f = c1[p1]==c3[p3] ? isValid(c1, c2, c3, len1, len2, len3, p1+1, p2, p3+1) : false;
-            map.put(key, f);
+            boolean flag = c1[p1]==c3[p3] ? isValid(c1, c2, c3, len1, len2, len3, p1+1, p2, p3+1) : false;
+            map.put(key, flag);
             return map.get(key);
         }
         
