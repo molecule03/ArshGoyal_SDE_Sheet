@@ -16,21 +16,22 @@ class Solution {
         else if(map.containsKey(""+i+"*"+l+"*"+t)){
             return map.get(""+i+"*"+l+"*"+t);
         }
-        else{
-            int ans = Integer.MAX_VALUE/2;
-            if(houses[i] == 0){
-                for(int j=0; j<n; j++){
-                ans = Math.min(ans, 
-                        cost[i][j]+getCost(i+1, j+1, (l==j+1)?t:t+1, houses, cost, m, n, target ));
+        
+        int ans = Integer.MAX_VALUE/2;
+        if(houses[i] == 0){
+            for(int j=0; j<n; j++){
+                ans = Math.min(ans,         
+                          cost[i][j]+getCost(i+1, j+1, (l==j+1)?t:t+1, houses, cost, m, n, target ));
                 }
             }
-            else{
-                ans = Math.min(ans, 
-                      getCost(i+1, houses[i], (l==houses[i])?t:t+1, houses, cost, m, n,target));
+        else{
+            ans = Math.min(ans, 
+                           getCost(i+1, houses[i], (l==houses[i])?t:t+1, houses, cost, m, n,target));
             }
+        
             map.put(""+i+"*"+l+"*"+t, ans);
             return ans;
-        }
+        
     }
     
 }
