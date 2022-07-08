@@ -1,6 +1,6 @@
 class Solution {
-    Map<String, Integer> map = new HashMap<>();
-    // int memo[][][] = new int[101][21][101];
+    // Map<String, Integer> map = new HashMap<>();
+    int memo[][][] = new int[101][21][101];
     final int MAX = Integer.MAX_VALUE/2;
     
     
@@ -18,12 +18,12 @@ class Solution {
         if(i == m){
             return t==target ? 0 : MAX;
         }
-        // else if(memo[i][l][t] != 0){
-        //     return memo[i][l][t];
-        // }
-        else if(map.containsKey(""+i+"*"+l+"*"+t)){
-            return map.get(""+i+"*"+l+"*"+t);
+        else if(memo[i][l][t] != 0){
+            return memo[i][l][t];
         }
+        // else if(map.containsKey(""+i+"*"+l+"*"+t)){
+        //     return map.get(""+i+"*"+l+"*"+t);
+        // }
         
         int ans = MAX;
         if(houses[i] == 0){
@@ -37,8 +37,8 @@ class Solution {
                   getCost(i+1, houses[i], (l==houses[i])?t:t+1, houses, cost, m, n,target));
             }
         
-        map.put(""+i+"*"+l+"*"+t, ans);
-        // memo[i][l][t] = ans;
+        // map.put(""+i+"*"+l+"*"+t, ans);
+        memo[i][l][t] = ans;
         return ans;
     }
     
