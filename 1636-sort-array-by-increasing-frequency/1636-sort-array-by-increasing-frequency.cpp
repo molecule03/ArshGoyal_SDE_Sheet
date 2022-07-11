@@ -15,9 +15,6 @@ public:
         }
         sort(temp.begin(),temp.end(), sortele);
         
-        // for(auto arr : temp){
-        //     cout<<arr[0]<<"->"<<arr[1]<<" ";
-        // }
         vector<int> ans;
         for(auto v : temp){
             for(int i=0; i<v[1]; i++){
@@ -30,8 +27,6 @@ public:
     }
     
    static bool sortele(vector<int> a, vector<int> b){
-       if(a[1]==b[1])
-           return a[0]>b[0];
-        return a[1] < b[1]; 
-    }
+       return (a[1]==b[1])? a[0]>b[0] : a[1]<b[1];
+       }
 };
