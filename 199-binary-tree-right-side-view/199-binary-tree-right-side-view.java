@@ -15,15 +15,14 @@
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        // List<Integer> list = new ArrayList<>();
         List<List<Integer>> wrapList = dfs(root);
         List<Integer> rightView = new ArrayList<Integer>();
-        if(wrapList.size() == 0) return rightView;
+        // if(wrapList.size() == 0) return rightView;
         
         for(List<Integer> list : wrapList){
             rightView.add(list.get(list.size()-1));
         }
-        // return list;
+        
         return rightView;
     }
     
