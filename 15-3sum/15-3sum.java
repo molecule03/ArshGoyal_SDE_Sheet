@@ -18,10 +18,10 @@ class Solution {
                     int sum = nums[lo]+nums[hi];
                     if(sum == newTar){
                         list.add(Arrays.asList(nums[hi], nums[lo], -newTar));
-                        while(lo < hi && nums[hi] == nums[hi-1]) hi--;
-                        while(lo < hi && nums[lo] == nums[lo+1]) lo++;
-                        lo++;
-                        hi--;
+                        ++lo;
+                        --hi;
+                        while(lo<hi && nums[lo] == nums[lo-1]) lo++;
+                        while(lo<hi && nums[hi] == nums[hi+1]) hi--;
                     }
                     else if(sum < newTar){
                         lo++;
