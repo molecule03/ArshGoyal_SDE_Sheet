@@ -3,17 +3,18 @@ class Solution {
         
         Stack<Character> st = new Stack();
         
-        for(char c : s.toCharArray()){
-            if(c=='(' || c=='{' || c=='['){
-                st.push(c);
+        for(char cur : s.toCharArray()){
+            if(cur=='(' || cur=='{' || cur=='['){
+                st.push(cur);
                 continue;
             }
-            if(st.isEmpty()) return false;
-            char ch = st.pop();
             
-            if( (c==')' && ch!='(') ||
-                (c=='}' && ch!='{') ||
-                (c==']' && ch!='[') 
+            if(st.isEmpty()) return false;
+            
+            char last = st.pop();
+            if( (cur==')' && last!='(') ||
+                (cur=='}' && last!='{') ||
+                (cur==']' && last!='[') 
               )
             return false;
         }
