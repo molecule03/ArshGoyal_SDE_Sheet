@@ -32,10 +32,10 @@ class Solution {
                 list.add(q.poll().val);
             }
             
-            wrapList.add(list);
+            wrapList.add(0,list);
         }
         
-         Collections.reverse(wrapList);
+        // Collections.reverse(wrapList);
         return wrapList;
     }
 }
