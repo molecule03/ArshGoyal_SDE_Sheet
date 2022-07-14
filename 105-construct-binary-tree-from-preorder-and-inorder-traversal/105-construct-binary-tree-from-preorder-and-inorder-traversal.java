@@ -40,9 +40,9 @@ class Solution {
         int inRoot = map.get(root.val);
         int num = inRoot - inS;
         
-        root.left = build(preorder,preS+1 ,preE+num , inorder, inS, inS+num-1, map);
+        root.left = build(preorder,preS+1 ,preE+num , inorder, inS, inRoot-1, map);
         
-        root.right = build(preorder,preS+num+1 ,preE , inorder, inS+num+1 ,inE , map);
+        root.right = build(preorder,preS+num+1 ,preE , inorder, inRoot+1 ,inE , map);
         
         
         return root;
