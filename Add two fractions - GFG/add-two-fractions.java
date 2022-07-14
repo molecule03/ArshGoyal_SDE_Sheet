@@ -34,15 +34,16 @@ class GfG
     
     void addFraction(int num1, int den1, int num2, int den2)
     {
-        int mod = 1000000000+9;
+        double mod = 1e+9;
         // Your code here
         int nx = (num1*den2)+(num2*den1);
-    int dx = (den1*den2);
-    
-    int g = gcd(nx, dx);
+        int dx = (den1*den2);
+        
+        int g = gcd(nx, dx);
     
     System.out.println(nx/g+"/"+dx/g);
     }
+    
 }
 
     //  1     2      (5*1)+(2*10)  nx
