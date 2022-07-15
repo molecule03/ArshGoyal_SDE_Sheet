@@ -9,38 +9,32 @@ class Solution {
         this.grid = grid;
         visited = new boolean[m][n];
         
-  
-        int maxArea = 0;
-        int count = 0;
-        List<Integer> countOfIsland = new ArrayList<>();
+        int countOfIsland = 0;
         for(int i=0; i<m; i++){
             // int area = 0;
             for(int j=0; j<n; j++){    
                 if(grid[i][j] == '1' && !visited[i][j]){
                     getArea(i, j);
-                    // countOfIsland.add(maxArea);
-                    count++;
+                    countOfIsland++;
                 } 
             }
         }
         
-        // System.out.println(countOfIsland);
-        
-        // return countOfIsland.size();
-        return count;
+        return countOfIsland;
     }
     
-      private void getArea(int i, int j){
-    if(i<0 || i>=grid.length || j<0 || j>=grid[0].length || grid[i][j]=='0' || visited[i][j])
+    private void getArea(int i, int j){
+        if(i<0 || i>=grid.length || j<0 || j>=grid[0].length || 
+           grid[i][j]=='0' || visited[i][j] )
         return;
         
         visited[i][j] = true;
         
-          getArea(i+1, j);
-          getArea(i-1, j); 
-          getArea(i, j+1); 
-          getArea(i, j-1); 
+        getArea(i+1, j);
+        getArea(i-1, j); 
+        getArea(i, j+1); 
+        getArea(i, j-1); 
           
-          return;
+        return;
     }
 }
