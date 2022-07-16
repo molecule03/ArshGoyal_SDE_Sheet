@@ -21,15 +21,11 @@ class Solution {
             }
         }
         
-        System.out.println(ss+" "+tt);
         if(ss.size() != tt.size()) return false;
         
-        int n = ss.size();
-        for(int i=0; i<n; i++){
-            char se = ss.pop();
-            char te = tt.pop();
-            // System.out.println((se-'a')+" "+(te-'a'));
-            if(se-'a' != te-'a')
+        int size = ss.size();
+        for(int i=0; i<size; i++){
+            if(ss.pop() != tt.pop())
                 return false;
         }
         
