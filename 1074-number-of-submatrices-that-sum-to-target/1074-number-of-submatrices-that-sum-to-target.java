@@ -1,13 +1,15 @@
 class Solution {
     public int numSubmatrixSumTarget(int[][] matrix, int target) {
         
-        int res = 0;
-        int curMat[] = new int[matrix[0].length];
+        int m = matrix.length;
+        int n = matrix[0].length;
         
-        for(int i=0; i<matrix.length; i++){
+        int res = 0;
+        int curMat[] = new int[n];
+        for(int i=0; i<m; i++){
             Arrays.fill(curMat, 0);
-            for(int j=i; j<matrix.length; j++){
-                for(int k=0; k<matrix[0].length; k++){
+            for(int j=i; j<m; j++){
+                for(int k=0; k<n; k++){
                     curMat[k] += matrix[j][k];
                 }
                 res += subarray(curMat, target);
