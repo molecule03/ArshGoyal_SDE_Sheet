@@ -3,9 +3,9 @@ class Solution {
         
         
         List<List<Integer>> wrapList = new ArrayList<>();
-        List<Integer> pre = null;
+        ArrayList<Integer> pre = null;
         for(int i=0; i<numRows; i++){
-            List<Integer> list = new ArrayList<>();
+            var list = new ArrayList<Integer>();
             for(int j=0; j<=i; j++){
                 if(j == 0 || j==i){
                     list.add(1);
