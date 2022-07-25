@@ -11,6 +11,6 @@ class Solution {
             set.add(temp*5);
         }
         
-        return Integer.parseInt(""+set.pollFirst());
+        return set.pollFirst().intValue();
     }
 }
