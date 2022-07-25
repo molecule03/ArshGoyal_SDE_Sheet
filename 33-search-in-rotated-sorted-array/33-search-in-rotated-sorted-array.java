@@ -1,6 +1,8 @@
 class Solution {
     public int search(int[] nums, int target) {
+      
         
+        // This is to get start point of the array
         int left = 0;
         int right = nums.length-1;
         int ans = 0;
@@ -16,7 +18,9 @@ class Solution {
             }
         }
         
-            System.out.println(left);
+        
+        
+        // From this we will get to now where the target lies
         if(target == nums[left])
             return left;
         else if(target == nums[nums.length-1]){
@@ -31,7 +35,9 @@ class Solution {
           
         }
         
-        // System.out.println(left+" "+right);
+        
+        
+        // Simple binary Search to find the element
         while(left <= right){
             int mid = left + (right-left)/2;
             
