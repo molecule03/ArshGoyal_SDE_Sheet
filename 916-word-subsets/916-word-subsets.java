@@ -1,24 +1,21 @@
 class Solution {
     public List<String> wordSubsets(String[] words1, String[] words2) {
         
-        int freq[] = new int[26];
-        Set<Character> wordsInB = new HashSet<>();
+        int bCount[] = new int[26];
         for(String b : words2){
             int temp[] = count(b);
             for(char c : b.toCharArray()){
-                wordsInB.add(c);
-                freq[c-'a'] = Math.max(freq[c-'a'], temp[c-'a']);
+                bCount[c-'a'] = Math.max(bCount[c-'a'], temp[c-'a']);
             }
         }
         
         
         List<String> res = new ArrayList<>();
         search : for(String s : words1){
-            Map<Character, Integer> map = new HashMap<>();
-            for(char c : s.toCharArray()) map.put(c, map.getOrDefault(c, 0)+1);
+            int aCount[] = count(s);
             
-            for(char a : wordsInB){
-                if(!map.containsKey(a) || map.get(a) < freq[a-'a'])
+            for(int i=0; i<26; i++){
+                if(aCount[i] < bCount[i])
                     continue search;
             }
             
