@@ -12,7 +12,7 @@ class Solution {
         }
         
         
-        System.out.println(Arrays.toString(freq));
+        // System.out.println(Arrays.toString(freq));
         
         List<String> res = new ArrayList<>();
         for(String s : words1){
