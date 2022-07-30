@@ -13,7 +13,6 @@ class Solution {
         List<String> res = new ArrayList<>();
         search : for(String s : words1){
             int aCount[] = count(s);
-            
             for(int i=0; i<26; i++){
                 if(aCount[i] < bCount[i])
                     continue search;
