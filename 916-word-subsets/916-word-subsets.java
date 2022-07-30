@@ -1,44 +1,28 @@
 class Solution {
-    public List<String> wordSubsets(String[] words1, String[] words2) {
-        
-        int freq[] = new int[26];
-        Set<Character> set = new HashSet<>();
-        for(String b : words2){
-            int temp[] = count(b);
-            for(char c : b.toCharArray()){
-                set.add(c);
-                freq[c-'a'] = Math.max(freq[c-'a'], temp[c-'a']);
-            }
+    public List<String> wordSubsets(String[] A, String[] B) {
+        int[] bmax = count("");
+        for (String b: B) {
+            int[] bCount = count(b);
+            for (int i = 0; i < 26; ++i)
+                bmax[i] = Math.max(bmax[i], bCount[i]);
         }
-        
-        
-        List<String> res = new ArrayList<>();
-        for(String s : words1){
-            Map<Character, Integer> map = new HashMap<>();
-            for(char c : s.toCharArray()) map.put(c, map.getOrDefault(c, 0)+1);
-            
-           
-            boolean flag = true;
-            for(char c : set){
-                if(!map.containsKey(c) || map.get(c) < freq[c-'a']){
-                    flag = false;
-                    break;
-                }
-            }
-            
-            if(flag) res.add(s);
-            
+
+        List<String> ans = new ArrayList();
+        search: for (String a: A) {
+            int[] aCount = count(a);
+            for (int i = 0; i < 26; ++i)
+                if (aCount[i] < bmax[i])
+                    continue search;
+            ans.add(a);
         }
-        
-        return res;
+
+        return ans;
     }
-    
-    
-    private static int[] count(String b){
-        
-        int freq[] = new int[26];
-        for(char c : b.toCharArray()) freq[c-'a']++;
-        
-        return freq;
+
+    public int[] count(String S) {
+        int[] ans = new int[26];
+        for (char c: S.toCharArray())
+            ans[c - 'a']++;
+        return ans;
     }
 }
