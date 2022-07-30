@@ -1,28 +1,37 @@
 class Solution {
-    public List<String> wordSubsets(String[] A, String[] B) {
-        int[] bmax = count("");
-        for (String b: B) {
-            int[] bCount = count(b);
-            for (int i = 0; i < 26; ++i)
-                bmax[i] = Math.max(bmax[i], bCount[i]);
+    public List<String> wordSubsets(String[] words1, String[] words2) {
+        
+// Here words2 is B and String is B[] is b && words1 is A and String in A[] is a
+        
+        int bCount[] = new int[26];
+        for(String b : words2){
+            int temp[] = count(b);
+            for(char c : b.toCharArray()){
+                bCount[c-'a'] = Math.max(bCount[c-'a'], temp[c-'a']);
+            }
         }
-
-        List<String> ans = new ArrayList();
-        search: for (String a: A) {
-            int[] aCount = count(a);
-            for (int i = 0; i < 26; ++i)
-                if (aCount[i] < bmax[i])
+        
+        
+        List<String> res = new ArrayList<>();
+        search : for(String s : words1){
+            int aCount[] = count(s);
+            for(int i=0; i<26; i++){
+                if(aCount[i] < bCount[i])
                     continue search;
-            ans.add(a);
+            }
+            
+            res.add(s);
         }
-
-        return ans;
+        
+        return res;
     }
-
-    public int[] count(String S) {
-        int[] ans = new int[26];
-        for (char c: S.toCharArray())
-            ans[c - 'a']++;
-        return ans;
+    
+    
+    private static int[] count(String b){
+        
+        int freq[] = new int[26];
+        for(char c : b.toCharArray()) freq[c-'a']++;
+        
+        return freq;
     }
 }
