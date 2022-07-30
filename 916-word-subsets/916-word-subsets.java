@@ -12,35 +12,23 @@ class Solution {
         }
         
         
-        // System.out.println(Arrays.toString(freq));
-        
         List<String> res = new ArrayList<>();
         for(String s : words1){
             Map<Character, Integer> map = new HashMap<>();
-            for(char c : s.toCharArray()){
-                map.put(c, map.getOrDefault(c, 0)+1);
-            }
+            for(char c : s.toCharArray()) map.put(c, map.getOrDefault(c, 0)+1);
             
            
             boolean flag = true;
-            // System.out.println(s);
             for(char c : set){
-                // System.out.println(c+" = "+map.get(c)+" \\ "+freq[c-'a']);
                 if(!map.containsKey(c) || map.get(c) < freq[c-'a']){
                     flag = false;
                     break;
                 }
             }
             
-            if(flag){
-                res.add(s);
-            }
+            if(flag) res.add(s);
             
         }
-        
-        
-        
-        
         
         return res;
     }
@@ -49,9 +37,7 @@ class Solution {
     private static int[] count(String b){
         
         int freq[] = new int[26];
-        for(char c : b.toCharArray()){
-            freq[c-'a']++;
-        }
+        for(char c : b.toCharArray()) freq[c-'a']++;
         
         return freq;
     }
