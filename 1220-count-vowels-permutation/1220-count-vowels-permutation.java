@@ -4,7 +4,7 @@ class Solution {
     Map<String, Long> map = new HashMap<>();
     public int countVowelPermutation(int n) {
         
-        long total = 0;
+        long total = 0l;
         char[] vowels = {'a', 'e', 'i', 'o', 'u'};
         for(char c : vowels){
             total = (total + getString(n-1, c)) % mod;
@@ -44,6 +44,7 @@ class Solution {
         }
         
         map.put(key, total%mod);
+        
         return total%mod;
     }
 }
