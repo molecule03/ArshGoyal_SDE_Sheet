@@ -22,11 +22,11 @@ class Solution {
         long total = 0;
         switch(curChar){
             case 'a' :{
-                total = (getString(n-1, 'e'))%mod;
+                total = (getString(n-1, 'e'));
                 break;
             }
             case 'e':{
-                total = (getString(n-1, 'a') + getString(n-1, 'i'))%mod;
+                total = (getString(n-1, 'a') + getString(n-1, 'i'));
                 break;
             }
             case 'i':{
