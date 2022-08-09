@@ -30,20 +30,20 @@ class Solution {
                 break;
             }
             case 'i':{
-                total = (getString(n-1, 'a')+getString(n-1, 'e')+getString(n-1, 'o')+getString(n-1, 'u'))%mod;
+                total = (getString(n-1, 'a')+getString(n-1, 'e')+getString(n-1, 'o')+getString(n-1, 'u'));
                 break;
             }
             case 'o':{
-                total = (getString(n-1, 'i')+ getString(n-1, 'u'))%mod;
+                total = (getString(n-1, 'i')+ getString(n-1, 'u'));
                 break;
             }
             case 'u':{
-                total = (getString(n-1, 'a'))%mod;
+                total = (getString(n-1, 'a'));
                 break;
             }
         }
         
-        map.put(key, total);
-        return total;
+        map.put(key, total%mod);
+        return total%mod;
     }
 }
