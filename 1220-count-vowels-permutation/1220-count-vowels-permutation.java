@@ -16,7 +16,7 @@ class Solution {
     private long getString(int n, char curChar){
         if(n == 0) return 1;
         
-        String key = "" + n + curChar;
+        String key = n +","+ curChar;
         if(map.containsKey(key)) return map.get(key);
         
         long total = 0;
