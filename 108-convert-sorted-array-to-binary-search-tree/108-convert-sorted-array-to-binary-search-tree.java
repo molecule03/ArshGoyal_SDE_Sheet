@@ -24,7 +24,7 @@ class Solution {
     private TreeNode makeBST(int[] nums, int left, int right){
         if(left > right) return null;
         
-        int mid = (left+right)/2;
+        int mid = left+(right-left)/2;
         TreeNode node = new TreeNode(nums[mid]);
         node.left = makeBST(nums, left, mid-1);
         node.right = makeBST(nums, mid+1, right);
