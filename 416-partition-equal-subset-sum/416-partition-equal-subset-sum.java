@@ -1,13 +1,14 @@
 class Solution {
    Boolean dp[][];
+    
 	public boolean canPartition(int[] nums) {
-
-			int sum = 0;
-			for(int i: nums) sum += i;
-
-			dp = new Boolean[nums.length+1][sum+1];
-
-			return getSum(nums, 0, sum, nums.length);
+        
+        int sum = 0;
+        for(int i: nums) sum += i;
+        
+        dp = new Boolean[nums.length+1][sum+1];
+        
+        return getSum(nums, 0, sum, nums.length);
 	}
 
 	private boolean getSum(int[] nums, int curSum, int totSum, int n){
