@@ -6,6 +6,8 @@ class Solution {
         int sum = 0;
         for(int i: nums) sum += i;
         
+        if(sum%2 != 0) return false;
+        
         dp = new Boolean[nums.length+1][sum+1];
      
         return getSum(nums, 0, sum, nums.length);
