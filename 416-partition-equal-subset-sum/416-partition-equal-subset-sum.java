@@ -11,21 +11,21 @@ class Solution {
 	}
 
 	private boolean getSum(int[] nums, int curSum, int totSum, int n){
-			if(n == 0 || totSum == 0) return false;
+        if(n == 0 || totSum == 0) return false;
+        
+        if(curSum == totSum) return true;
 
-			if(curSum == totSum) return true;
+        if(dp[n][totSum] != null) return dp[n][totSum];
 
-			if(dp[n][totSum] != null) return dp[n][totSum];
-
-			boolean ans = false;
-			if(nums[n-1] < totSum){
-					ans = getSum(nums, curSum+nums[n-1], totSum-nums[n-1], n-1) || getSum(nums, curSum, totSum, n-1);
-			}
-else{
-					ans = getSum(nums, curSum, totSum, n-1);
-			}
-
-			dp[n][totSum] = ans;
-			return ans;
+        boolean ans = false;
+        if(nums[n-1] < totSum){
+            ans = getSum(nums, curSum+nums[n-1], totSum-nums[n-1], n-1) || getSum(nums, curSum, totSum, n-1);
+        }
+        else{
+            ans = getSum(nums, curSum, totSum, n-1);
+        }
+        
+        dp[n][totSum] = ans;
+        return ans;
 	}
 }
