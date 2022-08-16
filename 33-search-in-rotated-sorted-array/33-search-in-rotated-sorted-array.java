@@ -1,5 +1,7 @@
 class Solution {
     public int search(int[] nums, int target) {
+        if(nums[0] == target) return 0;
+        if(nums[nums.length-1] == target) return nums.length-1;
       
         
         // This is to get start point of the array
@@ -21,10 +23,8 @@ class Solution {
         
         
         // From this we will get to now where the target lies
-        if(target == nums[left])
+        if(target == nums[left]){
             return left;
-        else if(target == nums[nums.length-1]){
-            return nums.length-1;
         }
         else if(target < nums[nums.length-1]){
             right = nums.length-1;
@@ -32,7 +32,6 @@ class Solution {
         else{
             right = left - 1;
             left = 0;
-          
         }
         
         
